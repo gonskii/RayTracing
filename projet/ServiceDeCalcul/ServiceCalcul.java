@@ -1,10 +1,18 @@
-package projet.ServiceDeCalcul;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+public class ServiceCalcul implements InterfaceServiceCalcul {
 
-import projet.raytracer.Image;
-
-public class ServiceCalcul {
-
-
+    /**
+     * Constructeur ServiceCalcul
+     * qui s'enregistre auprès du service de nom
+     * @param ip
+     * @param port
+     */
+    public ServiceCalcul(String ip, int port) throws Exception{
+        Registry reg = LocateRegistry.getRegistry(ip, port);
+        ServiceRatracing serviceRatracing = (ServiceRatracing) reg.lookup("ServiceRatracing");
+        serviceRatracing.enregistrerMachineQuiCalcul(this);
+    }
 
     /**
      * méthode calculerBoutScene
@@ -14,11 +22,10 @@ public class ServiceCalcul {
      * @param largeur
      * @param hauteur
      */
+    @Override
     public Image calculerBoutScene(Scene Scene, int x, int y, int largeur, int hauteur) {
-        // TODO implement here
-
-
-        return new Image(largeur, hauteur);
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'calculerBoutScene'");
     }
 
     
