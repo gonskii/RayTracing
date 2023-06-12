@@ -1,4 +1,4 @@
-package raytracer;
+package projet.raytracer;
 import javax.swing.*;        
 import java.awt.*;
 import java.awt.image.BufferedImage;
