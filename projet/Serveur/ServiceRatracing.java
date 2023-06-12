@@ -1,9 +1,5 @@
-package projet.Serveur;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import projet.ServiceDeCalcul.ServiceCalcul;
 
 public class ServiceRatracing implements InterfaceServiceRatracing {
     

@@ -1,12 +1,5 @@
-package projet.ServiceDeCalcul;
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-
-import projet.Serveur.ServiceRatracing;
-import projet.raytracer.Image;
-import projet.raytracer.Scene;
-
 public class ServiceCalcul implements InterfaceServiceCalcul {
 
     /**
