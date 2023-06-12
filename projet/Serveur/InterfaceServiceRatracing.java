@@ -7,6 +7,6 @@ public interface InterfaceServiceRatracing extends Remote{
 
     public void enregistrerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul);
 
-    public ArrayList<InterfaceServiceCalcul> getListeMachineQuiCalcul();
+    public InterfaceServiceCalcul getMachineQuiCalcul();
 
 }
