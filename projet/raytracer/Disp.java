@@ -1,4 +1,3 @@
-package projet.raytracer;
 import javax.swing.*;        
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +9,7 @@ public class Disp {
 
     public Disp(String title, int width, int height) {
 	
-	// create the image on which we draw
+	// create t he image on which we draw
 	BufferedImage image = new BufferedImage(width, height, 
 						BufferedImage.TYPE_INT_RGB);
 	

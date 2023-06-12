@@ -1,4 +1,3 @@
-package projet.raytracer;
 import java.awt.Color;
 
 /** Classe permettant la représentation d'une sphère 
