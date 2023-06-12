@@ -4,14 +4,14 @@ import java.util.ArrayList;
 public class ServiceRatracing implements InterfaceServiceRatracing {
     
     // Liste des clients
-    private ArrayList<ServiceCalcul> machineQuiCalcul = new ArrayList<>();
+    private ArrayList<InterfaceServiceCalcul> machineQuiCalcul = new ArrayList<>();
 
 
     /**
      * Méthode permettant de supprimer un client de la liste des clients
      * @param machineQuiCalcul
      */
-    public void supprimerMachineQuiCalcul(ServiceCalcul machineQuiCalcul) {
+    public void supprimerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
         this.machineQuiCalcul.remove(machineQuiCalcul);
     }
 
@@ -20,7 +20,7 @@ public class ServiceRatracing implements InterfaceServiceRatracing {
      * méthode enregistrant un client dans la liste des clients
      * @param machineQuiCalcul
      */
-    public void enregistrerMachineQuiCalcul(ServiceCalcul machineQuiCalcul) {
+    public void enregistrerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
         this.machineQuiCalcul.add(machineQuiCalcul);
     }
 
@@ -28,7 +28,7 @@ public class ServiceRatracing implements InterfaceServiceRatracing {
      * méthode getListeMachineQuiCalcul
      * @return la liste des machine qui calcul
      */
-    public ArrayList<ServiceCalcul> getListeMachineQuiCalcul() {
+    public ArrayList<InterfaceServiceCalcul> getListeMachineQuiCalcul() {
         return this.machineQuiCalcul;
     }
 

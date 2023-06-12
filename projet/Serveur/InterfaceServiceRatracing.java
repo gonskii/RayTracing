@@ -1,6 +1,7 @@
+import java.rmi.Remote;
 import java.util.ArrayList;
 
-public interface InterfaceServiceRatracing {
+public interface InterfaceServiceRatracing extends Remote{
     
     public void supprimerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul);
 

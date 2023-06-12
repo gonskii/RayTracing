@@ -10,7 +10,7 @@ public class ServiceCalcul implements InterfaceServiceCalcul {
      */
     public ServiceCalcul(String ip, int port) throws Exception{
         Registry reg = LocateRegistry.getRegistry(ip, port);
-        ServiceRatracing serviceRatracing = (ServiceRatracing) reg.lookup("ServiceRatracing");
+        InterfaceServiceRatracing serviceRatracing = (InterfaceServiceRatracing) reg.lookup("ServiceRatracing");
         serviceRatracing.enregistrerMachineQuiCalcul(this);
     }
 
