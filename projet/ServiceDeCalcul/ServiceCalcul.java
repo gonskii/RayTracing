@@ -1,32 +1,26 @@
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-public class ServiceCalcul implements InterfaceServiceCalcul {
+package servicedecalcul;
 
-    /**
-     * Constructeur ServiceCalcul
-     * qui s'enregistre auprès du service de nom
-     * @param ip
-     * @param port
-     */
-    public ServiceCalcul(String ip, int port) throws Exception{
-        Registry reg = LocateRegistry.getRegistry(ip, port);
-        InterfaceServiceRatracing serviceRatracing = (InterfaceServiceRatracing) reg.lookup("ServiceRatracing");
-        serviceRatracing.enregistrerMachineQuiCalcul(this);
-    }
+import raytracer.Image;
+import raytracer.Scene;
+
+import java.io.Serializable;
+
+public class ServiceCalcul implements InterfaceServiceCalcul, Serializable {
 
     /**
      * méthode calculerBoutScene
-     * @param Scene
-     * @param x
-     * @param y
-     * @param largeur
-     * @param hauteur
+     *
+     * @param scene   la scène à calculer
+     * @param x       coordonnée x du coin supérieur gauche de la partie de la scène à calculer
+     * @param y       coordonnée y du coin supérieur gauche de la partie de la scène à calculer
+     * @param largeur largeur de la partie de la scène à calculer
+     * @param hauteur hauteur de la partie de la scène à calculer
      */
     @Override
-    public Image calculerBoutScene(Scene Scene, int x, int y, int largeur, int hauteur) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calculerBoutScene'");
+    public Image calculerBoutScene(Scene scene, int x, int y, int largeur, int hauteur) {
+        System.out.println("Calcul de la partie de la scène : " + x + " " + y + " " + largeur + " " + hauteur);
+        Image image = scene.compute(x, y, largeur, hauteur);
+        System.out.println("Calcul terminé");
+        return image;
     }
-
-    
 }

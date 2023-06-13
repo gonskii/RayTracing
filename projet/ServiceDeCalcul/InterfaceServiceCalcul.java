@@ -1,5 +1,11 @@
-import java.rmi.Remote;
+package servicedecalcul;
 
-public interface InterfaceServiceCalcul extends Remote  {
-    public Image calculerBoutScene(Scene Scene, int x, int y, int largeur, int hauteur);
+import raytracer.Image;
+import raytracer.Scene;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface InterfaceServiceCalcul extends Remote {
+    Image calculerBoutScene(Scene scene, int x, int y, int largeur, int hauteur) throws RemoteException;
 }
