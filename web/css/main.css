@@ -12,10 +12,6 @@ p {
     font-family: sans-serif;
 }
 
-html {
-    width: 100%;
-    height: 100%;
-}
 
 body {
     margin: 0;
@@ -41,6 +37,7 @@ main {
     justify-content: center;
     height: 80%;
     width: 100%;
+    flex-direction: column;
 }
 
 .content_main {
@@ -143,4 +140,17 @@ main {
 
 #doc:hover {
     box-shadow: #9d9d9d 0px 0px 20px;
+}
+
+.schema_gen {
+    margin-top: 6em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schema_gen img {
+    width: 60%;
+    height: 100%;
 }

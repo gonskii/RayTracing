@@ -77,3 +77,17 @@ main {
 .fonctionnement li {
     margin-bottom: 5px;
 }
+
+
+.shema_part {
+    min-height: 2em;
+    width: 100%;
+    margin-top: 3em;
+}
+
+.first {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
