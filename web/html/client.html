@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client</title>
+
+    <link rel="stylesheet" href="../css/client.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" id="quit"
+        ><i class="fa-solid fa-left-long"></i
+      ></a>
+
+      <h1>Documentation du Client <i class="fa-solid fa-book"></i></h1>
+    </header>
+
+    <main>
+      <div class="desc">
+        <h1>Mise en situation</h1>
+        <p>
+          Le client possède une image qu'il souhaite rendre. Cependant, le rendu
+          de celle-ci prend plusieurs minutes à se faire. Le client décide de
+          faire effectuer le rendu de son image en utilisant plusieurs machines
+          simultanément.
+        </p>
+        <hr id="sep" />
+      </div>
+      <div class="fonctionnement">
+        <h1>Fonctionnement</h1>
+        <p>
+          Le client est un programme Java qui utilise le service de rendu de
+          raytracing distribué pour effectuer le rendu d'une image. Voici ce que
+          fait le client dans les grandes lignes :
+        </p>
+
+        <ol>
+          <li>
+            Le client se connecte au serveur de rendu distant en utilisant une
+            connexion RMI (Remote Method Invocation).
+          </li>
+          <li>
+            Une fenêtre graphique est créée pour afficher l'image résultante.
+          </li>
+          <li>
+            Une scène est initialisée à partir d'un fichier de description
+            spécifié.
+          </li>
+          <li>
+            L'image est découpée en plusieurs morceaux pour permettre un rendu
+            simultané sur plusieurs machines.
+          </li>
+          <li>
+            Des threads sont préparés pour chaque morceau de l'image découpée.
+          </li>
+          <li>
+            Chaque thread récupère une machine de calcul disponible du serveur
+            de rendu et effectue le rendu de sa partie de l'image.
+          </li>
+          <li>
+            Une fois le rendu terminé, l'image partielle est affichée dans la
+            fenêtre graphique.
+          </li>
+          <li>
+            Si une erreur de connexion se produit pendant le rendu d'un morceau
+            de l'image, la machine de calcul correspondante est supprimée du
+            pool disponible.
+          </li>
+          <li>
+            Après que tous les threads ont terminé leur travail, le programme
+            affiche le temps d'initialisation des threads et le temps
+            d'exécution total.
+          </li>
+        </ol>
+
+        <p>
+          En résumé, le client coordonne le rendu de l'image en utilisant
+          plusieurs machines en parallèle pour réduire le temps de rendu global.
+        </p>
+      </div>
+    </main>
+  </body>
 </html>
