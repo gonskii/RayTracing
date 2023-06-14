@@ -1,35 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
     <title>Accueil</title>
 
     <link rel="stylesheet" href="./css/main.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
-<body>
-    
-    <Header>
-        <div class="left-header">
-            <h1>JavaTracing</h1>
-        </div>
-    </Header>
+  <body>
+    <header>
+        <h1>Projet Répartie</h1>
+    </header>
 
     <main>
-        <div class="list-projet">
-            <div class="projet">
-                <div class="title-projet">
-                    <h1>JavaTracing</h1>
-                </div>
-                <div class="desc-projet">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, esse.
-                    </p>
-                </div>
+      <div class="content_main">
+        <div class="part">
+            <div class="part_title">
+                <h1>Client <i class="fa-sharp fa-solid fa-user"></i></h1>
+            </div>
+            <div class="part_desc">
+                <p>
+                    Devenez un client et profitez de nos machine pour générer vos images avec du raytracing.
+                </p>
+            </div>
+            <hr id="sep">
+            <div class="part_avantages">
+                <ul>
+                    <li>Gratuit</li>
+                    <li>Simple d'utilisation</li>
+                    <li>Accès à des machines puissantes</li>
+                    <li>Large choix d'options de rendu</li>
+                    <li>Sauvegarde de vos projets dans le cloud</li>
+                    <li>Résultats de rendu haute qualité</li>
+                    <li>Interface conviviale</li>
+                </ul>
+            </div>
+            <div class="part_btn">
+                <a href="./html/client.html" id="doc">Voir doc <i class="fa-sharp fa-solid fa-book"></i></a>
+                <a href="./files/test.zip" id="download">Download <i class="fa-sharp fa-solid fa-download"></i></a>
             </div>
         </div>
-    </main>
 
-</body>
+        <div class="part" id="serv">
+            <div class="part_title">
+                <h1>Serveur <i class="fa-sharp fa-solid fa-server"></i></h1>
+            </div>
+            <div class="part_desc">
+                <p>
+                    Le serveur se charge de la répartitions des tâches entre les Calculateurs.
+                </p>
+            </div>
+            <hr id="sep">
+            <div class="part_avantages">
+                <ul>
+                    <li>Gratuit</li>
+                    <li>Simple d'utilisation</li>
+                    <li>Accès à des machines puissantes</li>
+                    <li>Planification automatique des tâches</li>
+                    <li>Surveillance en temps réel des calculateurs grâce à une intelligence artificiel vla intelligent</li>
+                </ul>
+            </div>
+            <div class="part_btn">
+                <a href="./html/serveur.html" id="doc">Voir doc <i class="fa-sharp fa-solid fa-book"></i></a>
+                <a href="" id="download">Download <i class="fa-sharp fa-solid fa-download"></i></a>
+            </div>
+        </div>
+        
+        <div class="part">
+            <div class="part_title">
+                <h1>Calculateur <i class="fa-sharp fa-solid fa-calculator"></i></h1>
+            </div>
+            <div class="part_desc">
+                <p>
+                    Devenez un Calculateur et mettez à disposition votre machine pour générer des images avec du raytracing.
+                </p>
+            </div>
+            <hr id="sep">
+            <div class="part_avantages">
+                <ul>
+                    <li>Gratuit</li>
+                    <li>Simple d'utilisation</li>
+                    <li>Accès à des machines puissantes</li>
+                    <li>Contribuez à des projets de rendu ambitieux</li>
+                    <li>Recevez des crédits pour vos calculs</li>
+                    <li>Communauté active de calculateurs</li>
+                </ul>
+            </div>
+            <div class="part_btn">
+                <a href="./html/calculateur.html" id="doc">Voir doc <i class="fa-sharp fa-solid fa-book"></i></a>
+                <a href="" id="download">Download <i class="fa-sharp fa-solid fa-download"></i></a>
+            </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
