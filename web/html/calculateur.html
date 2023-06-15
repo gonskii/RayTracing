@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client</title>
+
+    <link rel="stylesheet" href="../css/client.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" id="quit"
+        ><i class="fa-solid fa-left-long"></i
+      ></a>
+
+      <h1>Documentation du Client <i class="fa-solid fa-book"></i></h1>
+    </header>
+
+    <main>
+      <div class="desc">
+        <h1>Mise en situation</h1>
+        <p>
+          Les calculateurs sont des machines qui s'enregistrent auprès du
+          serveur afin de mettre leurs capacités de calcul à la disposition des
+          clients.
+        </p>
+        <hr id="sep" />
+      </div>
+      <div class="fonctionnement">
+        <h1>Fonctionnement</h1>
+        <p>
+          Cette classe ServiceCalcul implémente l'interface
+          InterfaceServiceCalcul et est marquée comme Serializable. Elle fournit
+          un service pour calculer une partie spécifique d'une scène dans une
+          image.
+        </p>
+
+        <ol>
+          <li>
+            <strong
+              >calculerBoutScene(Scene scene, int x, int y, int largeur, int
+              hauteur)</strong
+            >: Cette méthode reçoit une scène et des coordonnées définissant une
+            section spécifique de cette scène. Il commence par imprimer un
+            message indiquant qu'il commence le calcul. Il note également le
+            moment du début du calcul. Ensuite, il effectue le calcul de la
+            scène spécifiée en utilisant la méthode `compute` de la classe
+            `Scene` qui prend les coordonnées de la section de la scène à
+            calculer. Après le calcul, il note le moment de la fin du calcul et
+            calcule la durée du calcul en millisecondes. Il imprime un message
+            indiquant que le calcul est terminé et la durée du calcul.
+            Finalement, il retourne l'image calculée.
+          </li>
+        </ol>
+
+        <p>
+          En résumé, cette classe est une implémentation concrète de l'interface
+          InterfaceServiceCalcul qui offre un service pour calculer une partie
+          spécifique d'une scène dans une image.
+        </p>
+      </div>
+      <div class="shema_part">
+        <div class="first">
+          <img src="../images/sch.png" alt="" />
+        </div>
+      </div>
+      <div class="download">
+        <a href="" id="download"
+          >Télécharger le zip <i class="fa-solid fa-file-zip"></i>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

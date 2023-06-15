@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serveur</title>
+
+    <link rel="stylesheet" href="../css/client.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" id="quit"
+        ><i class="fa-solid fa-left-long"></i
+      ></a>
+
+      <h1>
+        Documentation du Serveur <i class="fa-sharp fa-solid fa-server"></i>
+      </h1>
+    </header>
+
+    <main>
+      <div class="desc">
+        <h1>Mise en situation</h1>
+        <p>
+          Le serveur a pour rôle de gérer les inscriptions de calculateurs et de
+          répondre aux demandes des clients qui recherchent un calculateur
+          disponible pour effectuer le rendu d'une image.
+        </p>
+        <hr id="sep" />
+      </div>
+      <div class="fonctionnement">
+        <h1>Fonctionnement</h1>
+        <p>
+          Cette classe ServiceRaytracing implémente l'interface
+          InterfaceServiceRaytracing. En général, cette classe gère une liste de
+          machines qui effectuent des calculs. Les détails spécifiques de ces
+          méthodes sont les suivants :
+        </p>
+
+        <ol>
+          <li>
+            <strong>machineQuiCalcul</strong>: C'est une liste d'objets qui
+            implémentent l'interface `InterfaceServiceCalcul`. Ces objets
+            représentent des machines capables de faire des calculs.
+          </li>
+          <li>
+            <strong>prochaineMachine</strong>: C'est un index qui garde une
+            trace de la prochaine machine à utiliser pour les calculs.
+          </li>
+          <li>
+            <strong
+              >supprimerMachineQuiCalcul(InterfaceServiceCalcul
+              machineQuiCalcul)</strong
+            >: Cette méthode permet de supprimer une machine spécifique de la
+            liste des machines disponibles pour les calculs. Un message est
+            également imprimé pour indiquer qu'une machine a été supprimée.
+          </li>
+          <li>
+            <strong
+              >enregistrerMachineQuiCalcul(InterfaceServiceCalcul
+              machineQuiCalcul)</strong
+            >: Cette méthode ajoute une nouvelle machine à la liste des machines
+            disponibles pour les calculs. Un message est également imprimé pour
+            indiquer qu'une nouvelle machine a été enregistrée.
+          </li>
+          <li>
+            <strong>getMachineQuiCalcul()</strong>: Cette méthode retourne la
+            prochaine machine à utiliser pour les calculs, en se basant sur
+            l'index stocké dans la variable `prochaineMachine`. Après chaque
+            appel à cette méthode, l'index `prochaineMachine` est incrémenté
+            modulo la taille de la liste, ce qui signifie que lorsque toutes les
+            machines ont été utilisées, l'index revient à zéro et recommence à
+            parcourir la liste depuis le début.
+          </li>
+        </ol>
+
+        <p>
+          En résumé, cette classe sert à gérer une liste rotative de machines
+          pour effectuer des calculs en distribuant les tâches entre elles.
+        </p>
+      </div>
+      <div class="shema_part">
+        <div class="first">
+          <img src="../images/sch.png" alt="" />
+        </div>
+      </div>
+      <div class="download">
+        <a href="" id="download"
+          >Télécharger le zip <i class="fa-solid fa-file-zip"></i>
+        </a>
+      </div>
+    </main>
+  </body>
+</html>
