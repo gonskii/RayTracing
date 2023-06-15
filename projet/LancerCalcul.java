@@ -1,6 +1,7 @@
 import raytracer.Disp;
 import raytracer.Image;
 import raytracer.Scene;
+import serveur.AucunServiceException;
 import serveur.InterfaceServiceRaytracing;
 import servicedecalcul.InterfaceServiceCalcul;
 
@@ -60,28 +61,39 @@ public class LancerCalcul {
             for (int j = 0; j < nbDecoupage; j++) {
                 final int debutX = i * largeurDecoupage;
                 final int debutY = j * hauteurDecoupage;
-                final InterfaceServiceCalcul service = serviceRaytracing.getMachineQuiCalcul();
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         boolean calculTermine = false;
                         while (!calculTermine) {
                             try {
-                                InterfaceServiceCalcul service = serviceRaytracing.getMachineQuiCalcul();
-                                Image image = service.calculerBoutScene(scene, debutX, debutY, largeurDecoupage,
-                                        hauteurDecoupage);
-                                disp.setImage(image, debutX, debutY);
-                                calculTermine = true;
-                            } catch (RemoteException e) {
-                                System.out.println(
-                                        "Erreur de connexion a un client pour le bloc " + debutX + ":" + debutY);
+                                InterfaceServiceCalcul service;
                                 try {
-                                    serviceRaytracing.supprimerMachineQuiCalcul(service);
-                                } catch (RemoteException ex) {
-                                    System.out.println("Impossible de supprimer la machine qui calcul");
-                                    System.out.println("Serveur de calcul indisponible");
-                                    ex.printStackTrace();
+                                    service = serviceRaytracing.getMachineQuiCalcul();
+                                } catch (AucunServiceException e) {
+                                    System.out.println("Aucun service disponible");
+                                    System.exit(400);
+                                    return;
                                 }
+                                try {
+                                    Image image = service.calculerBoutScene(scene, debutX, debutY, largeurDecoupage,
+                                            hauteurDecoupage);
+                                    disp.setImage(image, debutX, debutY);
+                                    calculTermine = true;
+
+                                } catch (RemoteException e) {
+                                    System.out.println(
+                                            "Erreur de connexion a un client pour le bloc " + debutX + ":" + debutY);
+                                    try {
+                                        serviceRaytracing.supprimerMachineQuiCalcul(service);
+                                    } catch (RemoteException ex) {
+                                        System.out.println("Impossible de supprimer la machine qui calcul");
+                                        System.out.println("Serveur de calcul indisponible");
+                                        ex.printStackTrace();
+                                    }
+                                }
+                            } catch (RemoteException e) {
+
                             }
                         }
                     }

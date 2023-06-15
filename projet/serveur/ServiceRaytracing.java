@@ -23,9 +23,12 @@ public class ServiceRaytracing implements InterfaceServiceRaytracing {
     }
 
     @Override
-    public InterfaceServiceCalcul getMachineQuiCalcul() {
-        System.out.println("Récupération de la machine " + prochaineMachine);
+    public InterfaceServiceCalcul getMachineQuiCalcul() throws AucunServiceException {
+        if (this.machineQuiCalcul.size() == 0) {
+            throw new AucunServiceException();
+        }
         prochaineMachine = (prochaineMachine + 1) % this.machineQuiCalcul.size();
+        System.out.println("Récupération de la machine " + prochaineMachine + 1);
         return this.machineQuiCalcul.get(prochaineMachine);
     }
 }
