@@ -12,13 +12,13 @@ public class ServiceRaytracing implements InterfaceServiceRaytracing {
 
     @Override
     public void supprimerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
-        System.out.println("Machine supprimée, nombre de machines : " + (this.machineQuiCalcul.size() + 1));
+        System.out.println("Machine supprimee, nombre de machines : " + (this.machineQuiCalcul.size() + 1));
         this.machineQuiCalcul.remove(machineQuiCalcul);
     }
 
     @Override
     public void enregistrerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
-        System.out.println("Nouvelle machine enregistrée, nombre de machines : " + (this.machineQuiCalcul.size() + 1));
+        System.out.println("Nouvelle machine enregistree, nombre de machines : " + (this.machineQuiCalcul.size() + 1));
         this.machineQuiCalcul.add(machineQuiCalcul);
     }
 
