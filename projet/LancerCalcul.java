@@ -12,13 +12,21 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class LancerCalcul {
     public static void main(String[] args) throws RemoteException {
         String ip = args[0], fichier_description = "simple.txt", nomService = "ServiceRaytracing";
         int port = Integer.parseInt(args[1]);
-        int largeur = 1000, hauteur = 1000, nbDecoupage = 4;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Veuillez entrer la hauteur de la scène :");
+        int hauteur = sc.nextInt();
+        System.out.println("Veuillez entrer la largeur de la scène :");
+        int largeur = sc.nextInt();
+        System.out.println("Veuillez entrer le nombre de découpage :");
+        int nbDecoupage = sc.nextInt();
 
+        sc.close();
         Registry reg;
         InterfaceServiceRaytracing serviceRaytracing;
         try {
@@ -45,12 +53,9 @@ public class LancerCalcul {
         int hauteurDecoupage = hauteur / nbDecoupage;
 
         List<Thread> threads = new ArrayList<>();
-
-
+        Instant debut = Instant.now();
         // On découpe l'image en nbDecoupage x
         System.out.println("Découpage de l'image en " + nbDecoupage + "x" + nbDecoupage + " images");
-        System.out.println("Preparation des threads");
-        Instant debutInitThread = Instant.now();
         for (int i = 0; i < nbDecoupage; i++) {
             for (int j = 0; j < nbDecoupage; j++) {
                 final int debutX = i * largeurDecoupage;
@@ -63,11 +68,13 @@ public class LancerCalcul {
                         while (!calculTermine) {
                             try {
                                 InterfaceServiceCalcul service = serviceRaytracing.getMachineQuiCalcul();
-                                Image image = service.calculerBoutScene(scene, debutX, debutY, largeurDecoupage, hauteurDecoupage);
+                                Image image = service.calculerBoutScene(scene, debutX, debutY, largeurDecoupage,
+                                        hauteurDecoupage);
                                 disp.setImage(image, debutX, debutY);
                                 calculTermine = true;
                             } catch (RemoteException e) {
-                                System.out.println("Erreur de connexion a un client pour le bloc " + debutX + ":" + debutY);
+                                System.out.println(
+                                        "Erreur de connexion a un client pour le bloc " + debutX + ":" + debutY);
                                 try {
                                     serviceRaytracing.supprimerMachineQuiCalcul(service);
                                 } catch (RemoteException ex) {
@@ -76,21 +83,19 @@ public class LancerCalcul {
                                     ex.printStackTrace();
                                 }
                             }
-
                         }
-
                     }
                 });
+                thread.start();
                 threads.add(thread);
             }
         }
-        Instant finInitThread = Instant.now();
-        long dureeInitThread = Duration.between(debutInitThread, finInitThread).toMillis();
-        System.out.println("Lancement des threads (temps d'initialisation : " + dureeInitThread + "ms)");
-        Instant debutThread = Instant.now();
-        for (Thread thread : threads) {
-            thread.start();
-        }
+        System.out.println("Lancement des threads (temps d'initialisation :ms)");
+        /*
+         * for (Thread thread : threads) {
+         * thread.start();
+         * }
+         */
 
         // Attendre la fin de tous les threads
         for (Thread thread : threads) {
@@ -101,8 +106,9 @@ public class LancerCalcul {
                 e.printStackTrace();
             }
         }
-        Instant finThread = Instant.now();
-        long dureeExec = Duration.between(debutThread, finThread).toMillis();
-        System.out.println("Threads lancés (temps d'execution : " + dureeExec + "ms)");
+        Instant fin = Instant.now();
+        Duration duree = Duration.between(debut, fin);
+        System.out.println("Temps de calcul : " + duree.toMillis() + "ms");
+
     }
 }
