@@ -1,7 +1,3 @@
-package serveur;
-
-import servicedecalcul.InterfaceServiceCalcul;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

@@ -1,8 +1,4 @@
-package servicedecalcul;
-
-import raytracer.Image;
-import raytracer.Scene;
-
+import raytracer.*;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.Instant;

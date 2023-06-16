@@ -1,7 +1,3 @@
-package serveur;
-
-import servicedecalcul.InterfaceServiceCalcul;
-
 import java.util.ArrayList;
 
 public class ServiceRaytracing implements InterfaceServiceRaytracing {
@@ -11,7 +7,7 @@ public class ServiceRaytracing implements InterfaceServiceRaytracing {
     private int prochaineMachine = 0;
 
     @Override
-    public void supprimerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
+    public synchronized void supprimerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) {
         System.out.println("Machine supprimee, nombre de machines : " + (this.machineQuiCalcul.size() + 1));
         this.machineQuiCalcul.remove(machineQuiCalcul);
     }
@@ -28,7 +24,7 @@ public class ServiceRaytracing implements InterfaceServiceRaytracing {
             throw new AucunServiceException();
         }
         prochaineMachine = (prochaineMachine + 1) % this.machineQuiCalcul.size();
-        System.out.println("Récupération de la machine " + prochaineMachine + 1);
+        System.out.println("Récupération de la machine " + (prochaineMachine + 1));
         return this.machineQuiCalcul.get(prochaineMachine);
     }
 }

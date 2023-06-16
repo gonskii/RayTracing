@@ -1,10 +1,4 @@
-import raytracer.Disp;
-import raytracer.Image;
-import raytracer.Scene;
-import serveur.AucunServiceException;
-import serveur.InterfaceServiceRaytracing;
-import servicedecalcul.InterfaceServiceCalcul;
-
+import raytracer.*;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -98,16 +92,15 @@ public class LancerCalcul {
                         }
                     }
                 });
-                thread.start();
+//                thread.start();
                 threads.add(thread);
             }
         }
         System.out.println("Lancement des threads (temps d'initialisation :ms)");
-        /*
-         * for (Thread thread : threads) {
-         * thread.start();
-         * }
-         */
+        for (Thread thread : threads) {
+            thread.start();
+        }
+
 
         // Attendre la fin de tous les threads
         for (Thread thread : threads) {
