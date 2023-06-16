@@ -20,4 +20,4 @@ Un programme pour découper le calcul, récupérer les coordonnées des nœuds d
 En faisant cela, nous avons réussi à accélérer les calculs en distribuant les tâches sur plusieurs machines, prouvant ainsi l'efficacité de la parallélisation des données.
 
 
-(https://image.noelshack.com/fichiers/2023/24/5/1686912667-schema-general.png)
+![schéma de l'architecture](https://image.noelshack.com/fichiers/2023/24/5/1686912667-schema-general.png)
