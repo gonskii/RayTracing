@@ -19,7 +19,7 @@ public class LanceServiceCentrale {
             reg.rebind("ServiceRaytracing", (Remote) rd);
             System.out.print("Serveur lancé sur l'ip ");
             InetAddress ip = InetAddress.getLocalHost();
-            System.out.print(ip.getHostAddress() + ":" + port +"\n");
+            System.out.print(ip.getHostAddress() + ":" + port + "\n");
         } catch (Exception e) {
             System.out.println("Erreur : " + e.getMessage());
         }

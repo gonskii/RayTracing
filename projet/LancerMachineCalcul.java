@@ -10,12 +10,12 @@ public class LancerMachineCalcul {
     public static void main(String[] args) throws Exception {
         String ip = args[0];
         int port = Integer.parseInt(args[1]);
-        ServiceCalcul servicecalcul = new ServiceCalcul();
         Registry reg = LocateRegistry.getRegistry(ip, port);
         InterfaceServiceRaytracing serviceRaytracing = (InterfaceServiceRaytracing) reg.lookup("ServiceRaytracing");
-
-        InterfaceServiceCalcul serviceCalcul = (InterfaceServiceCalcul) UnicastRemoteObject.exportObject(servicecalcul, 0);
-        serviceRaytracing.enregistrerMachineQuiCalcul(serviceCalcul);
+        
+        ServiceCalcul servicecalcul = new ServiceCalcul();
+        InterfaceServiceCalcul serviceCalculRemote = (InterfaceServiceCalcul) UnicastRemoteObject.exportObject(servicecalcul, 0);
+        serviceRaytracing.enregistrerMachineQuiCalcul(serviceCalculRemote);
         System.out.println("ServiceCalcul enregistré auprès du serveur");
     }
 }

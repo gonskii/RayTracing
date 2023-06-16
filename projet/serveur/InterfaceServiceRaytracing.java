@@ -10,6 +10,6 @@ public interface InterfaceServiceRaytracing extends Remote {
 
     void enregistrerMachineQuiCalcul(InterfaceServiceCalcul machineQuiCalcul) throws RemoteException;
 
-    InterfaceServiceCalcul getMachineQuiCalcul() throws RemoteException ;
+    InterfaceServiceCalcul getMachineQuiCalcul() throws RemoteException, AucunServiceException ;
 
 }
