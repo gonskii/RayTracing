@@ -17,17 +17,21 @@ import java.util.Scanner;
 
 public class LancerCalcul {
     public static void main(String[] args) throws RemoteException {
-        String ip = args[0], fichier_description = "simple.txt", nomService = "ServiceRaytracing";
-        int port = Integer.parseInt(args[1]);
+        //On ajoute le scanner qui permet d'entrer les données:
         Scanner sc = new Scanner(System.in);
+        String ip = sc.nextLine(), fichier_description = "simple.txt", nomService = "ServiceRaytracing";
+        int port = sc.nextInt();
+        
         System.out.println("Veuillez entrer la hauteur de la scène :");
         int hauteur = sc.nextInt();
         System.out.println("Veuillez entrer la largeur de la scène :");
         int largeur = sc.nextInt();
         System.out.println("Veuillez entrer le nombre de découpage :");
         int nbDecoupage = sc.nextInt();
-
         sc.close();
+
+
+        //on récupére l'annuaire du serveur central:
         Registry reg;
         InterfaceServiceRaytracing serviceRaytracing;
         try {
@@ -80,7 +84,6 @@ public class LancerCalcul {
                                             hauteurDecoupage);
                                     disp.setImage(image, debutX, debutY);
                                     calculTermine = true;
-
                                 } catch (RemoteException e) {
                                     System.out.println(
                                             "Erreur de connexion a un client pour le bloc " + debutX + ":" + debutY);
