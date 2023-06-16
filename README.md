@@ -1,7 +1,7 @@
 # RayTracing Avec Java-RMI
 **Introduction**
 
-Ce projet a abordé l'aspect crucial de la programmation répartie : le calcul parallèle, plus spécifiquement, la parallélisation des données. L'objectif était de réaliser un traitement intensif de données, impossible à accomplir sur un ordinateur personnel. Pour cela, nous avons utilisé un ensemble de machines pour décomposer le calcul en plusieurs parties, chacune étant transmise à une machine différente pour être calculée. Les résultats ont ensuite été combinés pour obtenir le résultat final.
+Ce projet a abordé l'aspect crucial de la programmation répartie : le calcul parallèle, plus spécifiquement, la parallélisation des données. L'objectif était de réaliser un traitement intensif de données, compliqué à accomplir sur un ordinateur personnel. Pour cela, nous avons utilisé un ensemble de machines pour décomposer le calcul en plusieurs parties, chacune étant transmise à une machine différente pour être calculée. Les résultats ont ensuite été combinés pour obtenir le résultat final.
 
 # Le Tracé de Rayon
 Dans ce projet, nous nous sommes concentrés sur une tâche qui nécessite une grande quantité de cycles CPU : la synthèse d'images, plus précisément, le tracé de rayon (raytracing). Nous avons utilisé une implantation naïve en Java d'un algorithme de synthèse d'images. La scène calculée était décrite dans le fichier simple.txt.
