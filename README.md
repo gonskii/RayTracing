@@ -18,3 +18,6 @@ Un serveur pour récupérer les nœuds de calcul (Le serveur central),
 Un programme pour découper le calcul, récupérer les coordonnées des nœuds disponibles, envoyer un calcul sur chacun et afficher le résultat (Le client).
 
 En faisant cela, nous avons réussi à accélérer les calculs en distribuant les tâches sur plusieurs machines, prouvant ainsi l'efficacité de la parallélisation des données.
+
+
+(https://image.noelshack.com/fichiers/2023/24/5/1686912667-schema-general.png)
