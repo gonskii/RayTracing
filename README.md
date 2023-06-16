@@ -1,5 +1,6 @@
 # RayTracing Avec Java-RMI
 **Introduction**
+
 Ce projet a abordé l'aspect crucial de la programmation répartie : le calcul parallèle, plus spécifiquement, la parallélisation des données. L'objectif était de réaliser un traitement intensif de données, impossible à accomplir sur un ordinateur personnel. Pour cela, nous avons utilisé un ensemble de machines pour décomposer le calcul en plusieurs parties, chacune étant transmise à une machine différente pour être calculée. Les résultats ont ensuite été combinés pour obtenir le résultat final.
 
 # Le Tracé de Rayon
