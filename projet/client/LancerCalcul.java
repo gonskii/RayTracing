@@ -1,4 +1,7 @@
 import raytracer.*;
+import serveur.AucunServiceException;
+import serveur.InterfaceServiceRaytracing;
+
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -11,11 +14,22 @@ import java.util.Scanner;
 
 public class LancerCalcul {
     public static void main(String[] args) throws RemoteException {
-        //On ajoute le scanner qui permet d'entrer les données:
         Scanner sc = new Scanner(System.in);
-        String ip = sc.nextLine(), fichier_description = "simple.txt", nomService = "ServiceRaytracing";
-        int port = sc.nextInt();
-        
+        String ip;
+        int port;
+        if (args.length != 2) {
+            System.out.println("Entrez l'IP");
+            ip = sc.nextLine();
+            System.out.println("Entrez le port");
+            port = sc.nextInt();
+        } else {
+            ip = args[0];
+            port = Integer.parseInt(args[1]);
+        }
+
+        // On ajoute le scanner qui permet d'entrer les données:
+        String fichier_description = "simple.txt", nomService = "ServiceRaytracing";
+
         System.out.println("Veuillez entrer la hauteur de la scène :");
         int hauteur = sc.nextInt();
         System.out.println("Veuillez entrer la largeur de la scène :");
@@ -24,8 +38,7 @@ public class LancerCalcul {
         int nbDecoupage = sc.nextInt();
         sc.close();
 
-
-        //on récupére l'annuaire du serveur central:
+        // on récupére l'annuaire du serveur central:
         Registry reg;
         InterfaceServiceRaytracing serviceRaytracing;
         try {
@@ -95,7 +108,7 @@ public class LancerCalcul {
                         }
                     }
                 });
-//                thread.start();
+                // thread.start();
                 threads.add(thread);
             }
         }
@@ -103,7 +116,6 @@ public class LancerCalcul {
         for (Thread thread : threads) {
             thread.start();
         }
-
 
         // Attendre la fin de tous les threads
         for (Thread thread : threads) {
